@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon1.png"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style/lotPresent.css">
+    <link rel="stylesheet" href="style/question.css">
+    <link rel="stylesheet" href="style/rebus.css">
+    <link rel="stylesheet" href="style/snake.css">
+    <link rel="stylesheet" href="style/win.css">
+    <link rel="stylesheet" href="style/confetti.css">
+    <link rel="stylesheet" href="style/contentPresent.css">
+    <link rel="stylesheet" href="style/style.css">
+
+    <title>my present for you</title>
+</head>
+<body>
+
+
+<div class="desktop">
+    <div class="icon-group">
+        <div class="icon" id="icon-computer">
+            <img src="./desktop-img/my-computer.png" alt="my computer">
+            <p>you computer</p>
+        </div>
+        <div class="icon" id="icon-present">
+            <img src="./desktop-img/present.png" alt="present">
+            <p>you present</p>
+        </div>
+        <div class="icon" id="icon-directory">
+            <img src="./desktop-img/directory1.png" alt="directory">
+            <p>aboba1</p>
+        </div>
+    </div>
+
+    <div class="icon-group group-basket">
+        <div class="icon icon-basket" id="icon-basket">
+            <img src="./desktop-img/trash-can.png" alt="basket">
+            <p>you basket</p>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Подарок часть 1-->
+<div id="modal-present" style="display: none; z-index: 10" class="modal">
+    <div class="modal-container">
+        <div class="modal-top" id="present-header">
+            <div class="top-icon">
+                <img src="./desktop-img/collapse-window.png" alt="collapse-window">
+                <img src="./desktop-img/full-window.png" alt="full-window">
+                <img id="cross-present" src="./desktop-img/cross1.png" alt="cross" class="cross-active"/>
+            </div>
+        </div>
+        <div class="modal-content">
+
+            <!-- 1 -->
+            <div class="slide block-welcome" style="display: flex">
+                <p> <span>Привет!</span> Сегодня твой день и это мой подарок для тебя :з</p>
+
+                <button onclick="slideNext()">
+                    <img src="desktop-img/arrow1.png" alt="arrow-next">
+                </button>
+            </div>
+
+            <!-- 2 -->
+            <div class="slide block-welcome" style="display: none">
+                <p>Думала думала что тебе подарить.. Долго думала и придумала! :D</p>
+
+                <div class="prev-next">
+                    <button class="prev" onclick="slidePrev()">
+                        <img src="desktop-img/arrow-prev.png" alt="arrow-prev">
+                    </button>
+                    <button class="next" onclick="slideNext()">
+                        <img src="desktop-img/arrow1.png" alt="arrow-next">
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="slide block-welcome" style="display: none">
+                <p>Твой подарок где то спрятан. Где? Не скажу, придется узнавать самому.</p>
+
+                <div class="prev-next">
+                    <button class="prev" onclick="slidePrev()">
+                        <img src="desktop-img/arrow-prev.png" alt="arrow-prev">
+                    </button>
+                    <button class="next" onclick="slideNext()">
+                        <img src="desktop-img/arrow1.png" alt="arrow-next">
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- 4 -->
+            <div class="slide block-welcome" style="display: none">
+                <p>Как узнать самому? Ну.. В этой жизни не все так просто, придется пройти парочку испытаний.</p>
+
+                <div class="prev-next">
+                    <button class="prev" onclick="slidePrev()">
+                        <img src="desktop-img/arrow-prev.png" alt="arrow-prev">
+                    </button>
+                    <button class="next" onclick="slideNext()">
+                        <img src="desktop-img/arrow1.png" alt="arrow-next">
+                    </button>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="slide block-welcome ready" style="display: none">
+                <p>Ready?</p>
+
+                <div class="button-group">
+                    <button class="yes" id="button-yes" onclick="slideNext()">
+                        да
+                    </button>
+                    <button class="no" id="button-no">
+                        нет
+                    </button>
+                </div>
+            </div>
+
+
+
+            <!-- 6 TASK GROUP -->
+            <div class="slide task-group" style="display: none">
+
+                <button class="task task-lock" id="snake-button">
+                    <h2 style="display: none">№ 1</h2>
+                    <img style="display: block" src="desktop-img/lock.png" alt="lock">
+                    <img style="display: none" src="desktop-img/win.png" alt="lock">
+                </button>
+
+                <button class="task task-lock" id="rebus-button">
+                    <h2 style="display: none">№ 2</h2>
+                    <img style="display: block" src="desktop-img/lock.png" alt="lock">
+                    <img style="display: none" src="desktop-img/win.png" alt="lock">
+                </button>
+
+                <button class="task task-lock" id="question-button">
+                    <h2 style="display: none">№ 3</h2>
+                    <img style="display: block" src="desktop-img/lock.png" alt="lock">
+                    <img style="display: none" src="desktop-img/win.png" alt="lock">
+                </button>
+
+                <button class="task task-lock" id="lotPresent-button" >
+                    <h2 style="display: none">№ 4</h2>
+                    <img style="display: block" src="desktop-img/lock.png" alt="lock">
+                    <img style="display: none" src="desktop-img/win.png" alt="lock">
+                </button>
+
+                <button class="task task-lock" id="last-button">
+                    <h2 style="display: none">№ 5</h2>
+                    <img style="display: block" src="desktop-img/lock.png" alt="lock">
+                    <img style="display: none" src="desktop-img/win.png" alt="lock">
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--Подарок часть 2-->
+<div id="modal-present2" style="display: none; z-index: 10" class="modal">
+    <div class="modal-container">
+        <div class="modal-top" id="present2-header">
+            <div class="top-icon">
+                <img src="./desktop-img/collapse-window.png" alt="collapse-window">
+                <img src="./desktop-img/full-window.png" alt="full-window">
+                <img id="cross-present2" src="./desktop-img/cross1.png" alt="cross" class="cross-active"/>
+            </div>
+        </div>
+        <div class="modal-content" id="present2-content">
+
+            <div class="present2-password"  style="display: block">
+                <!--1-->
+                <div class="block-rebus block-present2" style="display: flex">
+                    <h3 style="color: #31322D; font-size: 45px">Пароль: </h3>
+                    <input class="input-question" id="input-present2" type="text" autocomplete="off"/>
+
+                    <p>Чтобы ответить нажми <span>ENTER</span></p>
+                </div>
+            </div>
+
+            <div class="present2-container" style="display: none">
+                <img style="width: 100%; height: 545px;" src="desktop-img/directory/иконки%20файлов/room%20Serj.png" alt="room">
+
+                <div id="kitchen">
+                    <div id="kitchen-button-1" class="present2-button"></div>
+                    <div id="kitchen-button-2" class="present2-button"></div>
+                    <div id="kitchen-button-3" class="present2-button"></div>
+                    <div id="kitchen-button-4" class="present2-button"></div>
+                    <div id="kitchen-button-5" class="present2-button"></div>
+                    <div id="kitchen-button-6" class="present2-button"></div>
+                    <div id="kitchen-button-7" class="present2-button"></div>
+                    <div id="kitchen-button-8" class="present2-button"></div>
+                    <div id="kitchen-button-9" class="present2-button"></div>
+                </div>
+
+                <div id="hallway">
+                    <div id="hallway-button-1" class="present2-button"></div>
+                    <div id="hallway-button-2" class="present2-button"></div>
+                </div>
+
+                <div id="bathroom">
+                    <div id="bathroom-button-1" class="present2-button"></div>
+                    <div id="bathroom-button-2" class="present2-button"></div>
+                </div>
+
+                <div id="bedroom">
+                    <div id="bedroom-button-1" class="present2-button"></div>
+                    <div id="bedroom-button-2" class="present2-button"></div>
+                    <div id="bedroom-button-3" class="present2-button"></div>
+                    <div id="bedroom-button-4" class="present2-button"></div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--Компьютер-->
+<div id="modal-computer" style="display: none; z-index: 10" class="modal">
+    <div class="modal-container">
+        <div class="modal-top" id="computer-header">
+            <div class="top-icon">
+                <img src="./desktop-img/collapse-window.png" alt="collapse-window">
+                <img src="./desktop-img/full-window.png" alt="full-window">
+                <img id="cross-computer" src="./desktop-img/cross1.png" alt="cross" class="cross-active"/>
+            </div>
+        </div>
+        <div class="modal-content" id="computer-content">
+
+            <div class="nav-buttons">
+                <button id="back-btn" disabled>← Назад</button>
+                <button id="forward-btn" disabled>Вперед →</button>
+            </div>
+
+            <div class="pages">
+                <div class="page" id="page-1">
+                    <div class="icon" id="dir1" data-target="page-2">
+                        <img src="./desktop-img/directory1.png" alt="directory">
+                        <p>aboba2</p>
+                    </div>
+                    <div class="icon" data-target="page-3">
+                        <img src="./desktop-img/directory1.png" alt="directory">
+                        <p>aboba3</p>
+                    </div>
+                    <div class="icon" data-target="page-4">
+                        <img src="./desktop-img/directory1.png" alt="directory">
+                        <p>aboba4</p>
+                    </div>
+                </div>
+
+
+
+
+                <div class="page" style="display: none" id="page-2">
+
+                    <div class="icon" data-target="page-5">
+                        <img src="./desktop-img/directory1.png" alt="directory" >
+                        <p>AAAAAA</p>
+                    </div>
+
+                    <div class="icon" data-target="page-6">
+                        <img src="./desktop-img/directory1.png" alt="directory">
+                        <p>blyatb</p>
+                    </div>
+
+                    <div class="icon" data-target="page-7">
+                        <img src="./desktop-img/directory1.png" alt="directory">
+                        <p>chikibamboni</p>
+                    </div>
+
+                </div>
+                <div class="page" style="display: none" id="page-3">
+                    <div class="icon" data-target="page-8">
+                        <img src="./desktop-img/directory1.png" alt="directory">
+                        <p>next door</p>
+                    </div>
+                    <div class="icon" data-target="page-9">
+                        <img src="./desktop-img/directory1.png" alt="directory">
+                        <p>kiticat</p>
+                    </div>
+                    <div class="icon" data-target="page-10">
+                        <img src="./desktop-img/directory1.png" alt="directory">
+                        <p>yoyoyo</p>
+                    </div>
+
+                    <div class="photo-box">
+                        <img class='photo' src="desktop-img/photo/mem-1.jpg" style="display: none" alt="">
+                        <div class="image-description" style="display: none">картинка намбер севен</div>
+                        <div class="icon">
+                            <img src="desktop-img/picture.png" alt="">
+                            <div class="icon-description">photo 16.jpeg</div>
+                        </div>
+                    </div>
+                    <div class="photo-box">
+                        <img class='photo' src="desktop-img/photo/mem-7.jpg" style="display: none" alt="">
+                        <div class="image-description" style="display: none">Есчо картинка да</div>
+                        <div class="icon">
+                            <img src="desktop-img/picture.png" alt="">
+                            <div class="icon-description">photo 16.jpeg</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="page" style="display: none" id="page-4">
+                    <div class="icon" data-target="page-11">
+                        <img src="./desktop-img/directory1.png" alt="directory">
+                        <p>aloha epta</p>
+                    </div>
+                    <div class="icon" data-target="page-12">
+                        <img src="./desktop-img/directory1.png" alt="directory">
+                        <p>^_^</p>
+                    </div>
+                    <div class="icon" data-target="page-13">
+                        <img src="./desktop-img/directory1.png" alt="directory">
+                        <p>zalupa</p>
+                    </div>
+                    <div class="photo-box">
+                        <img class='photo' src="desktop-img/photo/mem-6.jpg" style="display: none" alt="">
+                        <div class="image-description" style="display: none">Раб будни</div>
+                        <div class="icon">
+                            <img src="desktop-img/picture.png" alt="">
+                            <div class="icon-description">photo 16.jpeg</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="page" style="display: none" id="page-5">
+                    <div class="photo-box">
+                        <img class='photo' src="desktop-img/photo/mem-12.jpg" style="display: none" alt="">
+                        <div class="image-description" style="display: none">Хаха</div>
+                        <div class="icon">
+                            <img src="desktop-img/picture.png" alt="">
+                            <div class="icon-description">photo 16.jpeg</div>
+                        </div>
+                    </div>
+                    <div class="photo-box">
+                        <img class='photo' src="desktop-img/photo/mem-16.jpg" style="display: none" alt="">
+                        <div class="image-description" style="display: none">Заигрывает</div>
+                        <div class="icon">
+                            <img src="desktop-img/picture.png" alt="">
+                            <div class="icon-description">photo 16.jpeg</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" style="display: none" id="page-6">
+                </div>
+                <div class="page" style="display: none" id="page-7">
+                    <div class="photo-box">
+                        <img class='photo' src="desktop-img/photo/mem-4.jpg" style="display: none" alt="">
+                        <div class="image-description" style="display: none">Кошка</div>
+                        <div class="icon">
+                            <img src="desktop-img/picture.png" alt="">
+                            <div class="icon-description">photo 16.jpeg</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="page" style="display: none" id="page-8">
+                </div>
+                <div class="page" style="display: none" id="page-9">
+                    <div class="photo-box">
+                        <img class='photo' src="desktop-img/photo/mem-11.jpg" style="display: none" alt="">
+                        <div class="image-description" style="display: none">Я уже оставила заявку!!!</div>
+                        <div class="icon">
+                            <img src="desktop-img/picture.png" alt="">
+                            <div class="icon-description">photo 16.jpeg</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" style="display: none" id="page-10">
+                </div>
+
+
+
+
+                <div class="page" style="display: none" id="page-11">
+                    <div class="photo-box">
+                        <img class='photo' src="desktop-img/photo/mem-2.jpg" style="display: none" alt="">
+                        <div class="image-description" style="display: none">С праздником!</div>
+                        <div class="icon">
+                            <img src="desktop-img/picture.png" alt="">
+                            <div class="icon-description">photo 16.jpeg</div>
+                        </div>
+                    </div>
+                    <div class="photo-box">
+                        <img class='photo' src="desktop-img/photo/mem-5.jpg" style="display: none" alt="">
+                        <div class="image-description" style="display: none">Полюбому</div>
+                        <div class="icon">
+                            <img src="desktop-img/picture.png" alt="">
+                            <div class="icon-description">photo 16.jpeg</div>
+                        </div>
+                    </div>
+                    <div class="photo-box">
+                        <img class='photo' src="desktop-img/photo/mem-8.jpg" style="display: none" alt="">
+                        <div class="image-description" style="display: none">Хехе</div>
+                        <div class="icon">
+                            <img src="desktop-img/picture.png" alt="">
+                            <div class="icon-description">photo 16.jpeg</div>
+                        </div>
+                    </div>
+                    <div class="photo-box">
+                        <img class='photo' src="desktop-img/photo/mem-9.jpg" style="display: none" alt="">
+                        <div class="image-description" style="display: none">^_^</div>
+                        <div class="icon">
+                            <img src="desktop-img/picture.png" alt="">
+                            <div class="icon-description">photo 16.jpeg</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" style="display: none" id="page-12">
+                    <div class="photo-box">
+                        <img class='photo' src="desktop-img/photo/mem-14.jpg" style="display: none" alt="">
+                        <div class="image-description" style="display: none">О! Это мы качаемся на качелях в Галицком!!! ВААААА какие мы классненькие я нимагу</div>
+                        <div class="icon">
+                            <img src="desktop-img/picture.png" alt="">
+                            <div class="icon-description">photo 16.jpeg</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" style="display: none" id="page-13">
+                    <div class="icon" id="present2-button">
+                        <img src="./desktop-img/lot-present/fio-gift.png" alt="present 2">
+                        <p>???.exe</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--Папка-->
+<div id="modal-directory" style="display: none; z-index: 10" class="modal">
+    <div class="modal-container">
+        <div class="modal-top" id="directory-header">
+            <div class="task-number">aboba1</div>
+            <div class="top-icon">
+                <img src="./desktop-img/collapse-window.png" alt="collapse-window">
+                <img src="./desktop-img/full-window.png" alt="full-window">
+                <img id="cross-directory" src="./desktop-img/cross1.png" alt="cross" class="cross-active"/>
+            </div>
+        </div>
+        <div class="modal-content" id="directory-content">
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-1.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">О! Это мы с тобой в Геленджике адыхаем. Навевает приятные воспоминания... Помню как мы катались на колесе обозрения, купались в море на катамаране, летали на таблетке (как я орала..), гуляли по набережной.</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 1.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-2.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">О! А это я встречаю тебя с Москвы, помню как ты рассказывал что очень устал с поездки, но ты был рад меня видеть :)</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 2.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-3.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">О! А это мы стол собирали на Гаражной. Это было что-то, больше никогда не собираем что то отверткой! Только шруповерт! Главное заряженный :D</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 3.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-4.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">Какой вид... Это просто волшебно. А помнишь как я впервые увидела светлячков? Забавная ситуация :D. А какой там воздух приятный, помнишь? Обязательно съездим на море этим летом!!!</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 4.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-21.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">А это вид из окна Эрмитажа в Питере. Ах Питер... Помню как я ходила разглядывала несколько часов картины, статуи, интерьер, а ты смотрел как я разглядываю несколько часов картины, статуи, интерьер :D. (Ну еще музыку слушал хехе) Спасибо тебе огромное.</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 5.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-6.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">А тут мы еще не знаем что нас ждет там, в ближайшем будущем :). Больше на такое не попадемся! Хехе :). Зато есть что вспомнить. </div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 6.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-7.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">О! А на этом фото мы немного пьяненькие. Потащила тебя на пив завод в Калининграде :D. Помнишь как я спалилась с пенкой на бокале? Я тоже помню xD.</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 7.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-8.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">Сережа держит нашу планету. Ну ничего необычного в принципе :).</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 8.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-9.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">Летим в Москву из Калининграда, одна из моих любимых фотографий. Такие забавные, я нимагу</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 9.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-10.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">Твой глаз который смотрит прямо в душу, будоражит. Помню сделала эту фотографию в самолете. Тоже одна из любимых фотографий :)</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 10.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-13.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">Очень вкусное мороженное :D</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 11.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-14.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">О! А это ты маленький! Миленький такой, ваааай! Тоже одна из любимых фотографий ^_^</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 12.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-15.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">Типичный рабочий день на удаленке, да</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 13.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-18.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">А помнишь нашу первую встречу? И я помню. Сидим, плавим олово, делаем кольца :)</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 14.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-19.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">Я нашла нашу саааамую первую переписку. Мы познакомились именно в этот день, да. Кто ж знал что одно сообщение приведет к тому, что есть сейчас :D.</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 15.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <img class='photo' src="desktop-img/photo/photo-20.jpg" style="display: none" alt="">
+                <div class="image-description" style="display: none">Да да, именно так все и начиналось :)</div>
+                <div class="icon">
+                    <img src="desktop-img/picture.png" alt="">
+                    <div class="icon-description">photo 16.jpeg</div>
+                </div>
+            </div>
+            <div class="photo-box">
+                <video class='video' id="video-1" style="display: none" src="desktop-img/photo/Сережа3.mp4"></video>
+                <div class="image-description" style="display: none">Если бы меня вернули в то время, то я бы не задумываясь прошла бы этот путь еще раз вместе с тобой.</div>
+                <div class="icon" id="icon-video">
+                    <img src="desktop-img/video.png" alt="">
+                    <div class="icon-description">Birthday .mp4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Корзина-->
+<div id="modal-basket" style="display: none; z-index: 10" class="modal">
+    <div class="modal-container">
+        <div class="modal-top" id="basket-header">
+            <div class="top-icon">
+                <img src="./desktop-img/collapse-window.png" alt="collapse-window">
+                <img src="./desktop-img/full-window.png" alt="full-window">
+                <img id="cross-basket" src="./desktop-img/cross1.png" alt="cross" class="cross-active"/>
+            </div>
+        </div>
+        <div class="modal-content" id="basket-content">
+            <div class="icon" >
+                <img src="./desktop-img/directory1.png" alt="directory">
+                <p>плохая погода .exe</p>
+            </div>
+            <div class="icon" >
+                <img src="./desktop-img/directory1.png" alt="directory">
+                <p>плохое настроение .exe</p>
+            </div>
+            <div class="icon" >
+                <img src="./desktop-img/directory1.png" alt="directory">
+                <p>грусть .exe</p>
+            </div>
+            <div class="icon" >
+                <img src="./desktop-img/directory1.png" alt="directory">
+                <p>говно задачи .exe</p>
+            </div>
+            <div class="icon" >
+                <img src="./desktop-img/directory1.png" alt="directory">
+                <p>несмешные картинки .exe</p>
+            </div>
+            <div class="icon" >
+                <img src="./desktop-img/directory1.png" alt="directory">
+                <p>неприятные запахи .exe</p>
+            </div>
+            <div class="icon" >
+                <img src="./desktop-img/directory1.png" alt="directory">
+                <p>противная музыка .exe</p>
+            </div>
+            <div class="icon" >
+                <img src="./desktop-img/directory1.png" alt="directory">
+                <p>дети под окном .exe</p>
+            </div>
+            <div class="icon" >
+                <img src="./desktop-img/directory1.png" alt="directory">
+                <p>говно кнопки на сайтах .exe</p>
+            </div>
+            <div class="icon" >
+                <img src="./desktop-img/directory1.png" alt="directory">
+                <p>ошибки в IDE .exe</p>
+            </div>
+            <div class="icon" >
+                <img src="./desktop-img/directory1.png" alt="directory">
+                <p>говнокод .exe</p>
+            </div>
+            <div class="icon" >
+                <img src="./desktop-img/directory1.png" alt="directory">
+                <p>жирные руки .exe</p>
+            </div>
+            <div class="icon" >
+                <img src="./desktop-img/directory1.png" alt="directory">
+                <p>рассыпчатое на полу .exe</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ///////////////////   Игры   /////////////////// -->
+
+<!-- Змейка #1 -->
+<div id="modal-snake" style="display: none; z-index: 10" class="modal">
+    <div class="modal-container">
+        <div class="modal-top" id="snake-header">
+            <div class="task-number">#1 Змейка</div>
+            <div class="top-icon">
+                <img src="./desktop-img/collapse-window.png" alt="collapse-window">
+                <img src="./desktop-img/full-window.png" alt="full-window">
+                <img id="cross-snake" src="./desktop-img/cross1.png" alt="cross" class="cross-active"/>
+            </div>
+        </div>
+        <div class="modal-content" id="modal-content-snake">
+            <div class="snake">
+                <canvas id="snake-board"></canvas>
+                <div class="snake-info">
+                    <div class="score" id="snake-score">
+                        <p id="score-start"></p>: <p id="score-end"></p>
+                    </div>
+                    <div class="description">
+                        Задача: <br> Набери нужное количество очков чтобы открыть следующий уровень! <br>С каждым уровнем ты все ближе к <span>подарку</span>!
+                    </div>
+                    <div class="control">
+                        <h3>Управление:</h3>
+                        <span>  <div class="arrow-control">
+                            <img src="./desktop-img/snake/left.svg" alt="left">
+                            <img src="./desktop-img/snake/up.svg" alt="up">
+                            <img src="./desktop-img/snake/right.svg" alt="right">
+                            <img src="./desktop-img/snake/down.svg" alt="down">
+                        </div> — ходить</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Ребусы #2-->
+<div id="modal-rebus" style="display: none; z-index: 10" class="modal">
+    <div class="modal-container">
+        <div class="modal-top" id="rebus-header">
+            <div class="task-number">#2 Ребусы</div>
+            <div class="top-icon">
+                <img src="./desktop-img/collapse-window.png" alt="collapse-window">
+                <img src="./desktop-img/full-window.png" alt="full-window">
+                <img id="cross-rebus" src="./desktop-img/cross1.png" alt="cross" class="cross-active"/>
+            </div>
+        </div>
+        <div class="modal-content" id="modal-content-rebus">
+        
+            <!--1-->
+            <div class="slide-rebus block-rebus" style="display: flex">
+                <img src="desktop-img/rebus/rebus-1.png" alt="rebus-1">
+                <input class="input-rebus" type="text" id="rebus-1" autocomplete="off"/>
+
+                <p>Чтобы ответить нажми <span>ENTER</span></p>
+            </div>
+
+            <!--2-->
+            <div class="slide-rebus block-rebus" style="display: none">
+                <img src="desktop-img/rebus/rebus-2.png" alt="rebus-2">
+                <input class="input-rebus" type="text" id="rebus-2" autocomplete="off"/>
+
+                <p>Чтобы ответить нажми <span>ENTER</span></p>
+            </div>
+
+            <!--3-->
+            <div class="slide-rebus block-rebus" style="display: none">
+                <img src="desktop-img/rebus/rebus-3.png" alt="rebus-3">
+                <input class="input-rebus" type="text" id="rebus-3" autocomplete="off"/>
+
+                <p>Чтобы ответить нажми <span>ENTER</span></p>
+            </div>
+
+            <!--4-->
+            <div class="slide-rebus block-rebus" style="display: none">
+                <img src="desktop-img/rebus/rebus-4.png" alt="rebus-4">
+                <input class="input-rebus" type="text" id="rebus-4" autocomplete="off"/>
+
+                <p>Чтобы ответить нажми <span>ENTER</span></p>
+            </div>
+
+            <!--5-->
+            <div class="slide-rebus block-rebus" style="display: none">
+                <img src="desktop-img/rebus/rebus-5.png" alt="rebus-5">
+                <input class="input-rebus" type="text" id="rebus-5" autocomplete="off"/>
+
+                <p>Чтобы ответить нажми <span>ENTER</span></p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Вопросы #3-->
+<div id="modal-question" style="display: none; z-index: 10" class="modal">
+    <div class="modal-container">
+        <div class="modal-top" id="question-header">
+            <div class="task-number">#3 <span>...</span></div>
+            <div class="top-icon">
+                <img src="./desktop-img/collapse-window.png" alt="collapse-window">
+                <img src="./desktop-img/full-window.png" alt="full-window">
+                <img id="cross-question" src="./desktop-img/cross1.png" alt="cross" class="cross-active"/>
+            </div>
+        </div>
+        <div class="modal-content" id="modal-content-question">
+
+            <!--1-->
+            <div class="block-rebus block-question" style="display: flex">
+                <h3>Пароль: </h3>
+                <input class="input-question" id="input-question" type="text" autocomplete="off"/>
+
+                <p>Чтобы ответить нажми <span>ENTER</span></p>
+                <p>ьшеоркто ен акоп ,онмет тедуБ :акзаксдоП</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Много подарков #4-->
+<div id="modal-lotPresent" style="display: none; z-index: 10" class="modal">
+    <div class="modal-container">
+        <div class="modal-top" id="lotPresent-header">
+            <div class="task-number">#4 <span>Больше подарков!!!</span></div>
+            <div class="top-icon">
+                <img src="./desktop-img/collapse-window.png" alt="collapse-window">
+                <img src="./desktop-img/full-window.png" alt="full-window">
+                <img id="cross-lotPresent" src="./desktop-img/cross1.png" alt="cross" class="cross-active"/>
+            </div>
+        </div>
+        <div class="modal-content" id="modal-content-lotPresent">
+
+            <div class="gift" id="target-gift"><img src="./desktop-img/lot-present/fio-gift.png" alt="you present"></div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Последнее испытание #5-->
+<div id="modal-last" style="display: none; z-index: 10" class="modal">
+    <div class="modal-container">
+        <div class="modal-top" id="last-header">
+            <div class="task-number">#4 <span>last... or not?</span></div>
+            <div class="top-icon">
+                <img src="./desktop-img/collapse-window.png" alt="collapse-window">
+                <img src="./desktop-img/full-window.png" alt="full-window">
+                <img id="cross-last" src="./desktop-img/cross1.png" alt="cross" class="cross-active"/>
+            </div>
+        </div>
+        <div class="modal-content" id="modal-content-last">
+
+            <div>
+                Ну все, мучить не буду больше. Осталось последнее испытание... <br>
+                Сколько тут <span>символов</span>?
+            </div>
+
+            <p>Перенос строки не считается за символ.</p>
+            <p>001 ешьнем воловмиС :акзаксдоП</p>
+
+            <p style="color: #31322D; margin-top: 15px">После закрытия окна открыть его будет нельзя.</p>
+            <button id="close-modal-rebus">Закрыть</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    <script type="module" src="scripts/start.js"></script>
+
+
+    <script type="module" src="scripts/stateAll.js"></script>
+    <script type="module" src="scripts/modalManager.js"></script>
+    <script type="module" src="scripts/taskGroup.js"></script>
+    <script src="scripts/modalSliderContent.js"></script>
+    <script type="module" src="scripts/buttonMover.js"></script>
+    <script src="scripts/aboba.js"></script>
+
+
+
+    <script type="module" src="scripts/confetti.js"></script>
+    <script type="module" src="scripts/gameSnake.js"></script>
+    <script type="module" src="scripts/gameRebus.js"></script>
+    <script type="module" src="scripts/gameQuestion.js"></script>
+    <script type="module" src="scripts/gameLotPresent.js"></script>
+    <script type="module" src="scripts/gameLast.js"></script>
+    <script type="module" src="scripts/present2.js"></script>
+
+
+</body>
+</html>

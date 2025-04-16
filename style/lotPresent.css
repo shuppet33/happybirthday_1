@@ -1,0 +1,23 @@
+#lotPresent-header {
+    justify-content: space-between;
+}
+
+#modal-content-lotPresent img {
+    width: 100px;
+}
+
+#modal-content-lotPresent .gift {
+    left: 555px;
+    position: absolute;
+    top: 175px;
+
+    cursor: pointer;
+}
+
+#modal-content-lotPresent {
+    width: 100%;
+    height: 535px;
+
+    position: relative;
+    top: 5px;
+}

@@ -1,0 +1,52 @@
+#modal-rebus .modal-top {
+    justify-content: space-between;
+}
+
+.block-rebus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 45px;
+}
+
+.block-rebus img {
+    display: block;
+    width: 550px;
+    height: 300px;
+
+    outline: 10px solid #31322D;
+}
+
+.block-rebus input {
+    margin-top: 50px;
+    display: block;
+    outline: 10px solid #31322D;
+    padding: 20px;
+    width: 550px;
+    height: 100px;
+
+    background-color: #FAF4E6;
+
+    font-size: 48px;
+    color: #31322D;
+
+    caret-color: transparent;
+    border-width: 0px;
+}
+
+.block-rebus p {
+    margin-top: 15px;
+    color: #31322D;
+}
+
+.block-rebus p span {
+    color: #F165AA;
+    font-size: 20px;
+}
+
+.block-rebus input:focus {
+    border: 5px solid #b7dbff;
+}
+

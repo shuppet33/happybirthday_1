@@ -1,0 +1,14 @@
+#question-header {
+    justify-content: space-between;
+}
+
+.block-question h3 {
+    font-size: 60px;
+
+    color: #31322D;
+    margin-top: 75px;
+}
+
+.block-question input:focus {
+    border: 5px solid #ffbede !important;
+}

@@ -1,0 +1,71 @@
+
+#modal-snake .modal-top {
+    justify-content: space-between;
+}
+
+.snake {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 28px;
+
+    color: #31322D;
+}
+
+.snake canvas {
+    border: 5px solid #31322D;
+}
+
+.snake-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.snake-info .score {
+    font-size: 96px;
+
+    display: flex;
+    gap: 15px;
+}
+
+.snake-info .description {
+    font-size: 24px;
+    max-width: 254px;
+}
+
+.snake-info .description span {
+    color: #F165AA;
+}
+
+.snake-info .control {
+    font-size: 24px;
+
+    line-height: 50px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.snake-info .control h3 {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.snake-info .control span {
+    font-family: "Tiny5", sans-serif;
+}
+
+
+.control span {
+    display: flex;
+    gap: 10px;
+
+    align-items: center;
+}
+.arrow-control {
+    display: flex;
+
+    gap: 10px;
+}
+

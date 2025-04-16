@@ -1,0 +1,474 @@
+* {
+    font-family: "Tiny5", sans-serif;
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FAF4E6;
+
+    overflow-x: hidden;
+}
+
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.d-none {
+    display: none;
+}
+
+.desktop {
+    display: flex;
+    flex-direction: column;
+
+    height: 99vh;
+}
+
+.group-basket {
+    align-content: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.icon-group {
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 100px;
+    height: 140px;
+
+    font-size: 20px;
+    text-align: center;
+    text-wrap: wrap;
+
+    transition: all .7ms;
+
+    cursor: pointer;
+}
+
+.icon:active {
+    outline: 5px solid #4ad5da;
+    background: rgba(74, 213, 218, 0.47);
+}
+
+.icon img {
+    width: 100px;
+}
+
+.modal {
+    position: absolute;
+    top: 50px;
+    left: 300px;
+
+    width: 850px;
+    height: 600px;
+
+    border: 5px solid #31322D;
+    background: #FAF4E6;
+
+
+    animation: modalOpen 0.3s ease-out forwards;
+    transform-origin: left top;
+}
+
+/* Плавная анимация открытия */
+@keyframes modalOpen {
+    0% {
+        transform: scale(0.95) translateX(-20px) translateY(-20px);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-top {
+    width: 100%;
+    height: 50px;
+    background: #FAF4E6;
+    outline: 5px solid #31322D;
+
+    cursor: pointer;
+    transition: all 0.2s;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.task-number {
+    font-size: 32px;
+    margin-left: 10px;
+
+    color: #31322D;
+}
+
+.top-icon {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.top-icon img {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.cross-active:active {
+    outline: 5px solid rgb(233, 59, 61);
+    background: rgba(233, 59, 61, 0.42);
+}
+
+#modal-present .modal-container .modal-content {
+    height: 540px;
+    background-image: url("../desktop-img/background-modal.png");
+}
+
+#modal-snake {
+    top: 70px;
+    left: 280px;
+}
+
+/*.modal-content {*/
+/*    position: relative;*/
+/*}*/
+
+.bounce {
+    outline: 0;
+    outline-color: #bd5050 !important;
+    animation-name: bounce;
+    animation-duration: .5s;
+    animation-delay: 0.25s;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateX(0px);
+        timing-function: ease-in;
+    }
+    37% {
+        transform: translateX(5px);
+        timing-function: ease-out;
+    }
+    55% {
+        transform: translateX(-5px);
+        timing-function: ease-in;
+    }
+    73% {
+        transform: translateX(4px);
+        timing-function: ease-out;
+    }
+    82% {
+        transform: translateX(-4px);
+        timing-function: ease-in;
+    }
+    91% {
+        transform: translateX(2px);
+        timing-function: ease-out;
+    }
+    96% {
+        transform: translateX(-2px);
+        timing-function: ease-in;
+    }
+    100% {
+        transform: translateX(0px);
+        timing-function: ease-in;
+    }
+}
+
+.secret-code {
+    font-size: 55px;
+    color: #b965f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 545px;
+}
+
+
+#modal-content-last {
+    width: 100%;
+    height: 535px;
+
+    position: relative;
+    top: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-content-last div {
+    padding: 30px 50px;
+    color: #31322D;
+    font-size: 50px;
+}
+
+#modal-content-last div span {
+    color: #F165AA;
+}
+
+#modal-content-last p {
+    color: #31322d24;
+}
+
+#modal-content-last button{
+    margin-top: 15px;
+}
+
+
+#basket-content {
+    display: flex;
+    margin: 30px 40px;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+#directory-content {
+    display: flex;
+    margin: 30px 40px;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+#directory-header {
+    justify-content: space-between;
+}
+
+
+
+#computer-content {
+    display: flex;
+    margin: 30px 40px;
+    gap: 30px;
+    flex-wrap: wrap;
+
+    flex-direction: column;
+}
+
+.page {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.present2-button {
+
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+
+#present2-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 545px;
+}
+
+.dialog-box {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background-color: rgb(49 50 45 / 92%);
+    padding: 20px;
+    /* border: 5px solid #31322D; */
+    /* box-shadow: 0 5px 0px rgba(0, 0, 0, 0.3); */
+    color: #fff;
+    font-size: 20px;
+    z-index: 1000;
+    width: 96%;
+    height: 20%;
+    animation: fadeIn 0.3s ease-in-out
+}
+
+* {
+    font-family: "Tiny5", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#kitchen {
+    position: absolute;
+    top: 80px;
+    left: 226px;
+
+    width: 197px;
+    height: 194px;
+}
+
+#kitchen-button-1 {
+    width: 37px;
+    height: 62px;
+    top: 52px;
+    left: 9px;
+
+}
+
+#kitchen-button-2 {
+    width: 37px;
+    height: 21px;
+
+    top: 93px;
+    left: 48px;
+
+}
+
+#kitchen-button-3 {
+    width: 37px;
+    height: 21px;
+
+    top: 93px;
+    left: 86px;
+
+}
+
+
+#kitchen-button-4 {
+    width: 18px;
+    height: 14px;
+
+    top: 70px;
+    left: 90px;
+
+}
+
+#kitchen-button-5 {
+    width: 25px;
+    height: 21px;
+
+    top: 93px;
+    left: 125px;
+
+}
+
+#kitchen-button-6 {
+    width: 35px;
+    height: 21px;
+
+    top: 93px;
+    left: 152px;
+
+}
+
+#kitchen-button-7 {
+    width: 35px;
+    height: 16px;
+
+    top: 37px;
+    left: 114px;
+
+}
+
+#kitchen-button-8 {
+    width: 35px;
+    height: 16px;
+
+    top: 37px;
+    left: 152px;
+
+}
+
+#kitchen-button-9 {
+    width: 60px;
+    height: 20px;
+    top: 165px;
+    left: 26px;
+
+}
+
+#hallway-button-1 {
+    width: 88px;
+    height: 47px;
+    top: 282px;
+    left: 464px;
+}
+
+#hallway-button-2 {
+    width: 29px;
+    height: 23px;
+    top: 216px;
+    left: 525px;
+}
+
+
+#bathroom-button-1 {
+    width: 33px;
+    height: 30px;
+    top: 173px;
+    left: 504px;
+}
+
+#bathroom-button-2 {
+    width: 37px;
+    height: 51px;
+    top: 132px;
+    left: 436px;
+}
+
+#bedroom-button-1 {
+    width: 21px;
+    height: 23px;
+    top: 273px;
+    left: 358px;
+}
+
+#bedroom-button-2 {
+    width: 94px;
+    height: 55px;
+    top: 416px;
+    left: 458px;
+}
+
+#bedroom-button-3 {
+    width: 15px;
+    height: 20px;
+    top: 442px;
+    left: 286px;
+}
+
+#bedroom-button-4 {
+    width: 13px;
+    height: 34px;
+    top: 352px;
+    left: 526px;
+}
